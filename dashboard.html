@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - College Events Portal</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --bg: #0f1320;
+      --panel: rgba(16, 22, 37, 0.92);
+      --panel-strong: rgba(20, 28, 50, 0.98);
+      --accent: #4CAF50;
+      --text: #edf2fb;
+      --muted: #a9b8d1;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(180deg, rgba(15,19,32,1) 0%, rgba(20,28,50,1) 100%);
+      color: var(--text);
+    }
+    header {
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: rgba(5, 9, 22, 0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .brand h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+    }
+    .brand p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .profile {
+      text-align: right;
+    }
+    .profile strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .profile span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    main {
+      padding: 32px;
+      display: grid;
+      gap: 24px;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+    .summary-card,
+    .panel,
+    .feature-card {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+    }
+    .summary-card h3,
+    .panel h2,
+    .feature-card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .summary-card strong {
+      display: block;
+      font-size: 2.1rem;
+      margin-top: 8px;
+      letter-spacing: -0.04em;
+    }
+    .summary-card span {
+      color: var(--muted);
+    }
+    .panel {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .panel-big {
+      display: grid;
+      gap: 18px;
+    }
+    .panel-big h2 {
+      margin-bottom: 8px;
+    }
+    .panel-big p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .stats-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .stat-item {
+      background: rgba(255,255,255,0.04);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .stat-item strong {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+    .stat-item span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(76, 175, 80, 0.35);
+      background: rgba(24, 34, 57, 0.95);
+    }
+    .feature-card button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+    .feature-card button:hover {
+      background: #3ca242;
+    }
+    .footer-note {
+      padding: 24px 32px 32px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 860px) {
+      .panel {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>Event Organizer Dashboard</h1>
+      <p>Welcome back — manage events, registrations, and campus activities from one place.</p>
+    </div>
+    <div class="profile">
+      <strong>Logged in as</strong>
+      <span>student_user@example.com</span>
+    </div>
+  </header>
+  <main>
+    <section class="summary">
+      <article class="summary-card">
+        <h3>Upcoming events</h3>
+        <strong>5</strong>
+        <span>Events scheduled for this month</span>
+      </article>
+      <article class="summary-card">
+        <h3>Registrations</h3>
+        <strong>124</strong>
+        <span>Students registered this week</span>
+      </article>
+      <article class="summary-card">
+        <h3>Workshops</h3>
+        <strong>3</strong>
+        <span>Skill-building sessions in queue</span>
+      </article>
+      <article class="summary-card">
+        <h3>Announcements</h3>
+        <strong>2</strong>
+        <span>New updates for organizers</span>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-big">
+        <h2>Overview</h2>
+        <p>Use this dashboard as your control center for campus event planning. Navigate between event details, student engagement, and gallery highlights to keep your activities organized and visible.</p>
+        <div class="stats-grid">
+          <article class="stat-item">
+            <strong>8</strong>
+            <span>Active student clubs</span>
+          </article>
+          <article class="stat-item">
+            <strong>6</strong>
+            <span>Pending approval tasks</span>
+          </article>
+          <article class="stat-item">
+            <strong>4.8/5</strong>
+            <span>Average participant satisfaction</span>
+          </article>
+        </div>
+      </div>
+      <div class="panel-big">
+        <h2>Quick actions</h2>
+        <p>Jump directly into the most important areas: event creation, attendance tracking, activity gallery, and announcements. This section keeps your top priorities visible at all times.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="margin-bottom: 18px;">Key features</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Event management</h3>
+          <p>Review upcoming events, add new sessions, and update event details for students.</p>
+          <button onclick="location.href='index.html#events'">View Events</button>
+        </article>
+        <article class="feature-card">
+          <h3>Registration tracking</h3>
+          <p>Monitor student registrations, check attendance, and manage approvals.</p>
+          <button onclick="location.href='index.html#contact'">Check Contacts</button>
+        </article>
+        <article class="feature-card">
+          <h3>Gallery & stories</h3>
+          <p>Showcase event pictures and memories to encourage participation.</p>
+          <button onclick="location.href='index.html#gallery'">Open Gallery</button>
+        </article>
+        <article class="feature-card">
+          <h3>Announcements</h3>
+          <p>Send news updates, reminders, and event alerts to your campus community.</p>
+          <button onclick="location.href='index.html#about'">Send Announcement</button>
+        </article>
+      </div>
+    </section>
+  </main>
+  <div class="footer-note">This dashboard is your main interface after login. Use the quick links above to access the most important features for college event coordination.</div>
+</body>
+</html>
